@@ -8,6 +8,7 @@ on:
 
 env:
   DISPLAY: :99
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
   build:
@@ -30,10 +31,9 @@ jobs:
       run: >
         mvn -B sonar:sonar
         -Dsonar.host.url=https://sonarcloud.io
-        -Dsonar.organization=bonigarcia-github
-        -Dsonar.projectKey=io.github.bonigarcia:rate-my-cat
+        -Dsonar.organization=dyllansalgado
+        -Dsonar.projectKey=dyllansalgado_rate-my-cat
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
