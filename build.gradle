@@ -10,6 +10,17 @@ buildscript {
     }
 }
 
+plugins {
+  id "org.sonarqube" version "3.3"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "dyllansalgado_rate-my-cat"
+    property "sonar.organization", "dyllansalgado"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
 repositories {
     mavenCentral()
 }
@@ -58,14 +69,3 @@ dependencies {
     testImplementation("io.github.bonigarcia:selenium-jupiter:${seleniumJupiterVersion}")
 }
 
-plugins {
-  id "org.sonarqube" version "3.3"
-}
-
-sonarqube {
-  properties {
-    property "sonar.projectKey", "dyllansalgado_rate-my-cat"
-    property "sonar.organization", "dyllansalgado"
-    property "sonar.host.url", "https://sonarcloud.io"
-  }
-}
